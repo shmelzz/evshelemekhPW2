@@ -21,12 +21,12 @@ class ViewController: UIViewController {
     }
     
     private func setupIncrementButton() {
-        incrementButton.setTitle("Increment", for: .normal)
+        incrementButton.setTitle("Press me", for: .normal)
         incrementButton.setTitleColor(.black, for: .normal)
         incrementButton.layer.cornerRadius = 12
         incrementButton.titleLabel?.font = .systemFont(ofSize: 16.0, weight: .medium)
         incrementButton.backgroundColor = .white
-        // incrementButton.layer.applyShadow()
+        incrementButton.layer.applyShadow()
         
         self.view.addSubview(incrementButton)
         
@@ -40,13 +40,16 @@ class ViewController: UIViewController {
     func incrementButtonPressed() {
         value += 1
         
-        let generator = UIImpactFeedbackGenerator(style: .light)
+        let generator = UIImpactFeedbackGenerator(style: .heavy)
         generator.impactOccurred()
         
         UIView.animate(withDuration: 1) {
-            self.setupValueLabel()
-            self.updateCommentLabel(value: self.value)
+            self.updateUI()
         }
+    }
+    
+    private func updateValueLabel() {
+        valueLabel.text = "\(value)"
     }
     
     private func setupValueLabel() {
@@ -66,7 +69,7 @@ class ViewController: UIViewController {
         setupMenuButtons()
     }
     
-    private func setupCommentView() -> UIView {
+    private func setupCommentView() {
         let commentView = UIView()
         commentView.backgroundColor = .white
         commentView.layer.cornerRadius = 12
@@ -83,35 +86,38 @@ class ViewController: UIViewController {
         commentLabel.pin(to: commentView, [.top: 16, .left: 16, .bottom: 16, .right: 16])
         
         updateCommentLabel(value: value)
-        
-        return commentView
     }
     
     func updateCommentLabel(value: Int) {
         switch value {
         case 0...10:
-            commentLabel.text = "1"
+            commentLabel.text = "wow"
         case 10...20:
-            commentLabel.text = "2"
+            commentLabel.text = "wow wow"
         case 20...30:
-            commentLabel.text = "3"
+            commentLabel.text = "wow wow wow"
         case 30...40:
-            commentLabel.text = "4"
+            commentLabel.text = "wow wow wow wow"
         case 40...50:
-            commentLabel.text = "! ! ! ! ! ! ! ! ! "
+            commentLabel.text = "wow 5️⃣"
         case 50...60:
-            commentLabel.text = "big boy"
+            commentLabel.text = "wow x6"
         case 60...70:
-            commentLabel.text = "70 70 70 moreeeee"
+            commentLabel.text = "70 is getting closer"
         case 70...80:
-            commentLabel.text = "⭐ ⭐ ⭐ ⭐ ⭐ ⭐ ⭐ ⭐ ⭐ "
+            commentLabel.text = "get ready"
         case 80...90:
-            commentLabel.text = "80+\n go higher!"
+            commentLabel.text = "80+ is ready"
         case 90...100:
-            commentLabel.text = "100!! to the moon!!"
+            commentLabel.text = "start flying to the moon 💫"
         default:
             break
         }
+    }
+    
+    private func updateUI() {
+        updateValueLabel()
+        updateCommentLabel(value: self.value)
     }
     
     private func makeMenuButton(title: String) -> UIButton {
@@ -125,12 +131,39 @@ class ViewController: UIViewController {
         return button
     }
     
+    @objc
+    func earthButtonPressed() {
+        let generator = UIImpactFeedbackGenerator(style: .light)
+        generator.impactOccurred()
+    }
+    
+    @objc
+    func plantButtonPressed() {
+        let generator = UIImpactFeedbackGenerator(style: .rigid)
+        generator.impactOccurred()
+    }
+    
+    @objc
+    func mountButtonPressed() {
+        let generator = UIImpactFeedbackGenerator(style: .heavy)
+        generator.impactOccurred()
+    }
+    
     private func setupMenuButtons() {
-        let colorsButton = makeMenuButton(title: "🌎")
-        let notesButton = makeMenuButton(title: "🎋")
-        let newsButton = makeMenuButton(title: "🌋")
+        let earthButton = makeMenuButton(title: "🌎")
+        let plantButton = makeMenuButton(title: "🎋")
+        let mountButton = makeMenuButton(title: "🌋")
         
-        let buttonsStackView = UIStackView(arrangedSubviews: [colorsButton, notesButton, newsButton])
+        // haptic response for every button
+        earthButton.addTarget(self, action: #selector(earthButtonPressed), for: .touchUpInside)
+        plantButton.addTarget(self, action: #selector(plantButtonPressed), for: .touchUpInside)
+        mountButton.addTarget(self, action: #selector(mountButtonPressed), for: .touchUpInside)
+        
+        earthButton.layer.applyShadow()
+        plantButton.layer.applyShadow()
+        mountButton.layer.applyShadow()
+        
+        let buttonsStackView = UIStackView(arrangedSubviews: [earthButton, plantButton, mountButton])
         buttonsStackView.spacing = 12
         buttonsStackView.axis = .horizontal
         buttonsStackView.distribution = .fillEqually
@@ -140,4 +173,3 @@ class ViewController: UIViewController {
         buttonsStackView.pinBottom(to: self.view.safeAreaLayoutGuide.bottomAnchor, 24)
     }
 }
-

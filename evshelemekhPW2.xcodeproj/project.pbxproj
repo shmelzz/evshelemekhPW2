@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		CC8241FF28DDBC010029576E /* CALayerShadow.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC8241FE28DDBC010029576E /* CALayerShadow.swift */; };
 		CCA6F54728DCB25900F6D956 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCA6F54628DCB25900F6D956 /* AppDelegate.swift */; };
 		CCA6F54928DCB25900F6D956 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCA6F54828DCB25900F6D956 /* SceneDelegate.swift */; };
 		CCA6F54B28DCB25900F6D956 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCA6F54A28DCB25900F6D956 /* ViewController.swift */; };
@@ -16,6 +17,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		CC8241FE28DDBC010029576E /* CALayerShadow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CALayerShadow.swift; sourceTree = "<group>"; };
 		CCA6F54328DCB25900F6D956 /* evshelemekhPW2.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = evshelemekhPW2.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CCA6F54628DCB25900F6D956 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		CCA6F54828DCB25900F6D956 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -63,6 +65,7 @@
 				CCA6F55128DCB25A00F6D956 /* LaunchScreen.storyboard */,
 				CCA6F55428DCB25A00F6D956 /* Info.plist */,
 				CCA6F55A28DCB96200F6D956 /* UISwiftPin.swift */,
+				CC8241FE28DDBC010029576E /* CALayerShadow.swift */,
 			);
 			path = evshelemekhPW2;
 			sourceTree = "<group>";
@@ -141,6 +144,7 @@
 				CCA6F55B28DCB96200F6D956 /* UISwiftPin.swift in Sources */,
 				CCA6F54728DCB25900F6D956 /* AppDelegate.swift in Sources */,
 				CCA6F54928DCB25900F6D956 /* SceneDelegate.swift in Sources */,
+				CC8241FF28DDBC010029576E /* CALayerShadow.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
